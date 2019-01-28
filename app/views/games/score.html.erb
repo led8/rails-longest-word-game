@@ -1,2 +1,15 @@
-<h1>Games#score</h1>
-<p>Find me in app/views/games/score.html.erb</p>
+<div class="center">
+  <% if @included_word && @word.empty? %>
+    <% if @english_word %>
+      <span class="text-color"><%= 'Congratulations!' %> <%= @word %> <%= 'is a valid english word' %></span>
+    <% else %>
+      <span class="text-color"><%= 'Sorry...' %> <%= @word %> <%= 'is not a valid english word' %></span>
+    <% end %>
+  <% else %>
+    <span class="text-color"><%= 'Sorry but' %> <%= @word %> <%= 'can\'t be built out of' %> <%= @letters.join(', ') %></span>
+  <% end %>
+
+  <br>
+  <%= link_to 'Play again', new_path, :class => 'link-color' %>
+</div>
+
